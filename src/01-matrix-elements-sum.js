@@ -11,8 +11,6 @@
  *  [0, 5, 0, 0],
  *  [2, 0, 3, 3]
  * ]
- *
- * The result should be 9
  */
 function getMatrixElementsSum(matrix) {
   let counter = 0;
