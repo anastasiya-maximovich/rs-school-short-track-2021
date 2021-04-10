@@ -9,7 +9,7 @@
  * For s1 = "aabcc" and s2 = "adcaa", the output should be 3
  * Strings have 3 common characters - 2 "a"s and 1 "c".
  */
- function getCommonCharacterCount(s1, s2) {
+function getCommonCharacterCount(s1, s2) {
   // sample is a shorter string
   const sample = s1.length <= s2.length ? s1 : s2;
   // array from another string

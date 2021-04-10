@@ -10,7 +10,7 @@
  */
 function getEmailDomain(str) {
   const num = str.indexOf('@');
-  return str = str.slice(num);
+  return str.substring(0, num);
 }
 
 module.exports = getEmailDomain;

@@ -14,19 +14,18 @@
  *
  */
 function renameFiles(names) {
-  const obj = {};
-  const result = [];
-  names.map((item) => {
-    obj[item] = obj[item] ? obj[item] += 1 : 1;
-    if (result.includes(item)) {
-      const newItem = `${item}(${obj[item] - 1})`;
-      result.push(newItem);
-      obj[newItem] = 1;
-    } else {
-      result.push(item);
+  const arr = [...names];
+
+  for (let i = 0; i < arr.length; i++) {
+    let k = 1;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] === arr[i]) {
+        arr[j] = `${arr[j]}(${k})`;
+        k++;
+      }
     }
-  });
-  return result;
+  }
+  return arr;
 }
 
 module.exports = renameFiles;

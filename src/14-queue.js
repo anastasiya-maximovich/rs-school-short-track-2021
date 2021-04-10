@@ -10,30 +10,39 @@
  * queue.dequeue(); // returns the top element from queue and deletes it, returns 1
  *
  */
-
- class Queue {
+class Queue {
   constructor() {
+    this.tail = null;
+    this.head = null;
+    this.length = null;
     this.queue = [];
   }
 
   get size() {
-    return this.queue.length;
+    return this.length;
   }
 
   enqueue(element) {
-    const newNode = new ListNode();
-    newNode.value = element;
-    const firstElement = this.queue[0];
-    if (firstElement) {
-      newNode.next = firstElement;
+    if (!this.head) {
+      this.head = new ListNode(element);
+      this.head.value = element;
+      this.head.next = new ListNode(element);
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = new ListNode(element);
+      current.value = element;
     }
-    this.queue.unshift(newNode);
   }
 
   dequeue() {
-    const deletedElement = this.queue.pop();
-    deletedElement.next = null;
-    return deletedElement.value;
+    let current = this.head;
+    const element = current.value;
+    current = current.next;
+    this.head = current;
+    return element;
   }
 }
 

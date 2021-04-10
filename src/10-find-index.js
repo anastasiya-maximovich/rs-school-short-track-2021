@@ -10,8 +10,6 @@
  * For ([1, 2, 3], 1) should return 0
  * For ([1, 2, 3], 2) should return 1
  *
-
-
 function findIndex(arr, value) {
   const filter = Number(arr.filter((item, i) => item[i] === value));
   return filter - 1;

@@ -12,7 +12,7 @@
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
- function isMAC48Address(n) {
+function isMAC48Address(n) {
   const macAdress = /([\dA-F]{2}-){5}[\dA-F]/g;
   return macAdress.test(n);
 }
