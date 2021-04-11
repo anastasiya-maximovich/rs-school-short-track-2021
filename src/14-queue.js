@@ -12,10 +12,9 @@
  */
 class Queue {
   constructor() {
-    this.tail = null;
     this.head = null;
-    this.length = null;
-    this.queue = [];
+    this.tail = null;
+    this.length = 0;
   }
 
   get size() {
@@ -23,26 +22,22 @@ class Queue {
   }
 
   enqueue(element) {
-    if (!this.head) {
-      this.head = new ListNode(element);
-      this.head.value = element;
-      this.head.next = new ListNode(element);
+    const node = new Queue(element);
+    if (this.head) {
+      this.tail.next = node;
+      this.tail = node;
     } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = new ListNode(element);
-      current.value = element;
+      this.head = node;
+      this.tail = node;
     }
+    this.length++;
   }
 
   dequeue() {
-    let current = this.head;
-    const element = current.value;
-    current = current.next;
-    this.head = current;
-    return element;
+    const del = this.head;
+    this.head = this.head.next;
+    this.length--;
+    return del.value;
   }
 }
 

@@ -6,7 +6,6 @@
  *
  * @example
  * For aabbbc should return 2a3bc
- *
  */
 function encodeLine(/* str */) {
   throw new Error('Not implemented');
