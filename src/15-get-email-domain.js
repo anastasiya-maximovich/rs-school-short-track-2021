@@ -7,10 +7,15 @@
  * @example
  * For the input 'prettyandsimple@example.com', the output should be 'example.com'
  *
- */
+
 function getEmailDomain(email) {
   const strIndex = email.indexOf('@');
   return email.substring(0, strIndex);
+}
+ */
+function getEmailDomain(email) {
+  const emailArr = email.split('@');
+  return emailArr[emailArr.length - 1];
 }
 
 module.exports = getEmailDomain;

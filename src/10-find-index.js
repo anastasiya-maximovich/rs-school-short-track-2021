@@ -10,13 +10,27 @@
  * For ([1, 2, 3], 1) should return 0
  * For ([1, 2, 3], 2) should return 1
  *
-function findIndex(arr, value) {
-  const filter = Number(arr.filter((item, i) => item[i] === value));
-  return filter - 1;
-}
-*/
+
 function findIndex(arr, value) {
   return arr.indexOf(value);
+}
+*/
+function findIndex(array, value) {
+  let leftIndex = 0;
+  let rightIndex = array.length - 1;
+  let medianaIndex = 0;
+  if (array[rightIndex] === value) {
+    return rightIndex;
+  }
+  while (array[medianaIndex] !== value) {
+    medianaIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
+    if (array[medianaIndex] > value) {
+      rightIndex = medianaIndex;
+    } else {
+      leftIndex = medianaIndex;
+    }
+  }
+  return medianaIndex;
 }
 
 module.exports = findIndex;
